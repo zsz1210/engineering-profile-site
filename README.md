@@ -6,6 +6,8 @@ Interview profile site for sharing an engineering background and AI development 
 
 - `index.html`: engineering profile
 - `ai.html`: AI engineering evidence
+- `index-en.html` / `ai-en.html`: English version
+- `index-zh.html` / `ai-zh.html`: Traditional Chinese version
 
 ## Deployment
 

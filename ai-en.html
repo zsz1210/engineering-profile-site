@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Engineering Evidence | Development Workflow and Practical Record</title>
+    <meta
+      name="description"
+      content="A practical record of using AI agents, GitHub, Mac mini, Codex, and local workflows to support development, quality verification, releases, and information protection."
+    >
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="stylesheet" href="./styles.css?v=2">
+  </head>
+  <body class="portfolio-redesign ai-redesign lang-en">
+    <header class="site-header">
+      <a class="brand" href="./index-en.html" aria-label="Back to profile">
+        <span class="brand-mark">AIE</span>
+        <span>AI Engineering Evidence</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="./index-en.html">Profile</a>
+        <a href="#summary">Summary</a>
+        <a href="#methods">Methods</a>
+        <a href="#architecture">Setup</a>
+        <a href="#delivery">GitHub</a>
+        <a href="#governance">Governance</a>
+        <a href="#future">Future</a>
+        <a href="#cases">merical</a>
+      </nav>
+      <nav class="language-switch" aria-label="Language switch">
+        <a href="./ai.html">JP</a>
+        <a aria-current="page" href="./ai-en.html">EN</a>
+        <a href="./ai-zh.html">繁中</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">AI Engineering / Agent Workflow</p>
+          <h1 id="hero-title">Embedding AI into a development workflow</h1>
+          <p class="hero-intro">
+            I used AI not as a one-shot question tool, but as part of a development system
+            that supports research, implementation, verification, documentation, and release preparation.
+          </p>
+          <p class="lead">
+            I combined Codex, Hermes Agent, OpenClaw, Gemini, GitHub, and a local Mac mini environment
+            while keeping task state, decisions, and verification results traceable.
+          </p>
+          <nav class="profile-entry" aria-label="Recommended reading order">
+            <a href="#summary">
+              <span>01</span>
+              <strong>Read the AI summary</strong>
+              <small>What this material is meant to show</small>
+            </a>
+            <a href="./index-en.html">
+              <span>02</span>
+              <strong>Back to profile</strong>
+              <small>Career, technical range, and working style</small>
+            </a>
+          </nav>
+        </div>
+
+        <aside class="terminal-panel" aria-label="AI workflow summary">
+          <div class="terminal-bar">
+            <strong>ai work summary</strong>
+          </div>
+          <dl class="worklog-list">
+            <div>
+              <dt>Technical judgment</dt>
+              <dd>How to combine AI agents, GitHub, local runtime, and Mac mini into a usable development flow</dd>
+            </div>
+            <div>
+              <dt>Delivery</dt>
+              <dd>How to move from issue organization and role assignment to review, verification, and release preparation</dd>
+            </div>
+            <div>
+              <dt>Responsibility</dt>
+              <dd>How to separate AI-assisted work, human decisions, and protection of company information</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <section id="summary" class="signal-band" aria-label="Material summary">
+        <article>
+          <span>01</span>
+          <strong>Purpose</strong>
+          <p>Supplement the resume with evidence of AI-assisted development, judgment, quality control, and information protection.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <strong>What to evaluate</strong>
+          <p>The ability to break down work, manage state, and deliver results with AI instead of simply delegating tasks to it.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <strong>How AI was used</strong>
+          <p>Research, design, implementation, review, testing, documentation, and handoff were treated as separate roles.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <strong>Concrete example</strong>
+          <p>The last section explains merical, a product built from zero with AI support through release preparation.</p>
+        </article>
+      </section>
+
+      <section id="methods" class="section overview-section" aria-labelledby="methods-title">
+        <div class="section-inner reading-layout">
+          <p class="eyebrow">How I used AI</p>
+          <h2 id="methods-title">Methods and Operating Style</h2>
+          <div class="article-body">
+            <p>
+              I first define the objective, constraints, and completion criteria on the human side.
+              Then I ask AI to support research, design options, implementation, review, test viewpoints, and documentation as separate tasks.
+            </p>
+            <p>
+              The core is state management. I connect Codex, Hermes Agent, OpenClaw, Gemini, GitHub,
+              local files, browser checks, memory, and verification results so work can continue across sessions.
+            </p>
+            <p>
+              I do not accept AI output as-is. Diff checks, tests, static analysis, UI checks, logs,
+              reviews, and release preparation are part of the completion criteria.
+            </p>
+            <p>
+              I also separate what AI can handle from what requires human confirmation, especially around company data,
+              personal data, tokens, external transmission, destructive actions, and release decisions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="architecture" class="section architecture-section" aria-labelledby="architecture-title">
+        <div class="section-inner">
+          <div class="section-heading wide">
+            <p class="eyebrow">My local setup</p>
+            <h2 id="architecture-title">Mac mini-centered AI Development Environment</h2>
+            <p>
+              I used my Mac mini as a local base for AI development and automation,
+              connecting Codex, Hermes Agent, OpenClaw, Gemini, GitHub, browser context, documents, and memory.
+            </p>
+          </div>
+
+          <div class="architecture-grid">
+            <figure class="system-map" aria-label="AI development architecture map">
+              <div class="map-core">
+                <span>Local Runtime</span>
+                <strong>Mac mini</strong>
+              </div>
+              <div class="map-item item-a">Codex</div>
+              <div class="map-item item-b">Hermes Agent</div>
+              <div class="map-item item-c">OpenClaw / Mokuri</div>
+              <div class="map-item item-d">Gemini</div>
+              <div class="map-item item-e">GitHub</div>
+              <div class="map-item item-f">Docs / Memory</div>
+            </figure>
+
+            <div class="stack-table" role="table" aria-label="AI workflow stack">
+              <div role="row">
+                <strong role="cell">AI / Agent</strong>
+                <span role="cell">Codex, Hermes Agent, OpenClaw, Gemini</span>
+              </div>
+              <div role="row">
+                <strong role="cell">Delivery</strong>
+                <span role="cell">GitHub Issues, Pull Requests, Projects, branch workflow</span>
+              </div>
+              <div role="row">
+                <strong role="cell">Runtime</strong>
+                <span role="cell">Mac mini, local files, browser profile, CLI tools</span>
+              </div>
+              <div role="row">
+                <strong role="cell">Quality</strong>
+                <span role="cell">tests, static analysis, review, UI check, verification log</span>
+              </div>
+              <div role="row">
+                <strong role="cell">Governance</strong>
+                <span role="cell">secret handling, external-send confirmation, sanitized output</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="codex" class="section codex-section" aria-labelledby="codex-title">
+        <div class="section-inner">
+          <div class="section-heading wide">
+            <p class="eyebrow">Codex in daily work</p>
+            <h2 id="codex-title">Using Codex as an Implementation and Verification Hub</h2>
+            <p>
+              Before writing code, I use Codex to inspect local memory, GitHub history, and current file diffs.
+              Then I use it for file edits, browser checks, document creation, and verification.
+            </p>
+          </div>
+
+          <div class="codex-layout">
+            <article class="codex-card primary-card">
+              <span class="file-label">codex session</span>
+              <h3>Start by understanding what work is being continued</h3>
+              <p>
+                I avoid jumping directly into implementation. For inherited work, I check memory, PRs, issues,
+                current diffs, and release branches before deciding the correct continuation point.
+              </p>
+            </article>
+
+            <div class="codex-uses">
+              <article>
+                <strong>Local files</strong>
+                <span>Read resumes, profile pages, settings, and project files, then reflect changes in the right artifact</span>
+              </article>
+              <article>
+                <strong>Browser check</strong>
+                <span>Open local pages and apps to verify layout, navigation, and user-facing behavior</span>
+              </article>
+              <article>
+                <strong>GitHub workflow</strong>
+                <span>Use issues, PRs, branches, and project history to restore work context</span>
+              </article>
+              <article>
+                <strong>Verification</strong>
+                <span>Include tests, diffs, reviews, visual checks, and logs as completion criteria</span>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="delivery" class="section delivery-section" aria-labelledby="delivery-title">
+        <div class="section-inner two-column">
+          <div class="section-heading sticky-note">
+            <p class="eyebrow">How I ran the work</p>
+            <h2 id="delivery-title">Run Short Cycles with GitHub as the Shared State</h2>
+            <p>
+              I used GitHub not only as a code repository, but as the center where humans and AI agents share the current state.
+            </p>
+          </div>
+
+          <ol class="workflow">
+            <li>
+              <span>Issue</span>
+              <h3>Read purpose and constraints</h3>
+              <p>Use issues, projects, existing PRs, and local memory to understand what flow this work belongs to.</p>
+            </li>
+            <li>
+              <span>Branch</span>
+              <h3>Choose the correct continuation point</h3>
+              <p>Do not assume main is correct. Check release branches and previous PRs before starting.</p>
+            </li>
+            <li>
+              <span>Build</span>
+              <h3>Implement and verify in small steps</h3>
+              <p>Read diffs, run tests, analyze warnings, review output, and check screens while using AI as a support role.</p>
+            </li>
+            <li>
+              <span>Deploy</span>
+              <h3>Connect deployment and verification logs</h3>
+              <p>Keep build uploads, release preparation, PRs, issue comments, and verification logs connected.</p>
+            </li>
+            <li>
+              <span>Observe</span>
+              <h3>Use AI for SLO and monitoring support</h3>
+              <p>Summarize metrics, logs, alerts, SLO status, early signals, and impact scope for faster judgment.</p>
+            </li>
+            <li>
+              <span>Incident</span>
+              <h3>Automate the first response to production issues</h3>
+              <p>Gather related logs, recent releases, monitoring information, and known issues to support initial triage.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="governance" class="section governance-section" aria-labelledby="governance-title">
+        <div class="section-inner two-column">
+          <div class="section-heading sticky-note">
+            <p class="eyebrow">AI governance / security</p>
+            <h2 id="governance-title">Designing Guardrails for AI Use with Company Information</h2>
+            <p>
+              AI adoption should show not only speed, but also what should not be sent to AI
+              and where human confirmation is required.
+            </p>
+          </div>
+
+          <div class="rule-list">
+            <article>
+              <h3>Do not record secrets</h3>
+              <p>Do not include API keys, GitHub tokens, internal IDs, or personal information in public materials.</p>
+            </article>
+            <article>
+              <h3>Confirm external transmission</h3>
+              <p>Require human confirmation for posts, PR operations, file sharing, destructive actions, and publication decisions.</p>
+            </article>
+            <article>
+              <h3>Sanitize for public explanation</h3>
+              <p>Abstract company names, internal architecture, and specific settings when explaining work publicly.</p>
+            </article>
+            <article>
+              <h3>Separate local permissions</h3>
+              <p>Separate strong local permissions from external integrations when using a Mac mini as the execution base.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="future" class="section future-section" aria-labelledby="future-title">
+        <div class="section-inner">
+          <div class="section-heading wide">
+            <p class="eyebrow">Future perspective</p>
+            <h2 id="future-title">How I See AI Evolving</h2>
+            <p>
+              AI will expand from code generation into research, design, implementation, verification,
+              operations, monitoring, and decision support. The important part is not introducing AI itself,
+              but designing it safely into company workflows, development teams, and information management.
+            </p>
+          </div>
+
+          <div class="future-grid">
+            <article>
+              <span>Industry</span>
+              <h3>Impact on the industry</h3>
+              <p>Competitiveness will shift from whether a company uses AI to whether it can redesign business processes around AI.</p>
+            </article>
+            <article>
+              <span>Company</span>
+              <h3>Impact on companies</h3>
+              <p>Companies need rules for authority, data boundaries, review, auditability, security, and release decisions.</p>
+            </article>
+            <article>
+              <span>Engineer</span>
+              <h3>Impact on engineers</h3>
+              <p>Engineers will be evaluated more by problem decomposition, context design, review ability, and risk judgment than by code volume alone.</p>
+            </article>
+          </div>
+
+          <div class="future-sre">
+            <div class="section-heading">
+              <p class="eyebrow">AI for SRE / Operations</p>
+              <h3>SLO, Monitoring, and Production Incident Support</h3>
+              <p>
+                AI can also support reliability work by organizing signals during the first few minutes of an incident.
+              </p>
+            </div>
+
+            <div class="sre-use-cases">
+              <article>
+                <span>01</span>
+                <h4>SLO / Error Budget</h4>
+                <p>Summarize SLOs, error budgets, recent degradation, and response priority.</p>
+              </article>
+              <article>
+                <span>02</span>
+                <h4>Alert triage</h4>
+                <p>Gather metrics, logs, traces, and alert context to propose likely cause areas.</p>
+              </article>
+              <article>
+                <span>03</span>
+                <h4>First response</h4>
+                <p>Connect recent releases, PRs, config changes, known issues, and logs to support impact and rollback judgment.</p>
+              </article>
+              <article>
+                <span>04</span>
+                <h4>Postmortem support</h4>
+                <p>Organize timelines, causes, detection delays, response delays, and follow-up tasks.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cases" class="section cases-section" aria-labelledby="cases-title">
+        <div class="section-inner">
+          <div class="section-heading wide">
+            <p class="eyebrow">Detailed case</p>
+            <h2 id="cases-title">What I Practiced in merical</h2>
+            <p>
+              This section explains what merical is, how I developed it with AI, and where human judgment was required.
+            </p>
+          </div>
+
+          <div class="case-stack">
+            <div class="case-links" aria-label="merical related links">
+              <div class="repo-note">
+                <span>GitHub</span>
+                <strong>Private repository</strong>
+                <em>github.com/zsz1210/merical (available when access is granted)</em>
+              </div>
+              <a href="https://apps.apple.com/jp/app/%E3%83%A1%E3%83%AA%E3%82%AB%E3%83%AB/id6758891621">
+                <span>App Store</span>
+                <strong>View merical on the App Store</strong>
+              </a>
+            </div>
+
+            <article class="case-detail">
+              <div>
+                <p class="case-kicker">00 / Product origin</p>
+                <h3>merical is a mobile app for managing profit, inventory, and sales in flea-market selling</h3>
+                <p>
+                  merical manages purchase cost, expected selling price, platform fees, shipping, packaging materials,
+                  sales, and profit. It covers records from purchasing to selling, profit simulation,
+                  material inventory, sales analysis, and backup.
+                </p>
+              </div>
+              <ul class="case-facts">
+                <li>Flutter / iOS app</li>
+                <li>Profit calculation, purchasing, inventory, and sales management</li>
+                <li>Local DB with Drift / SQLite</li>
+                <li>Backup, ads, and Pro subscription path</li>
+              </ul>
+            </article>
+
+            <article class="case-detail">
+              <div>
+                <p class="case-kicker">01 / From zero to release</p>
+                <h3>merical was built from zero with AI support</h3>
+                <p>
+                  I used AI from business problem organization and requirements definition through feature splitting,
+                  screen structure, data modeling, architecture decisions, implementation, tests, analysis,
+                  simulator checks, real-device checks, TestFlight checks, build upload, and deployment preparation.
+                </p>
+              </div>
+              <ul class="case-facts">
+                <li>AI-assisted requirements definition</li>
+                <li>Feature-First / Clean Architecture</li>
+                <li>Verification from simulator to real device</li>
+                <li>TestFlight and deployment preparation</li>
+              </ul>
+            </article>
+
+            <article class="agile-case">
+              <div class="agile-copy">
+                <p class="case-kicker">02 / Agile AI team operation</p>
+                <h3>AI was assigned roles like a small development team</h3>
+                <p>
+                  I kept product decisions and final confirmation on the human side, while AI supported progress management,
+                  implementation, verification, review, and release preparation. GitHub Project, release branches,
+                  PRs, and TestFlight checks became the shared operating cycle.
+                </p>
+              </div>
+
+              <div class="role-grid" aria-label="AI team roles">
+                <article>
+                  <span>Lead</span>
+                  <strong>Progress management</strong>
+                  <p>Organize issues, project state, release branches, and next work items.</p>
+                </article>
+                <article>
+                  <span>Builder</span>
+                  <strong>Implementation</strong>
+                  <p>Read Flutter/iOS diffs and support feature fixes, setting changes, and build adjustments.</p>
+                </article>
+                <article>
+                  <span>Tester</span>
+                  <strong>Verification</strong>
+                  <p>Manage test, analysis, simulator, real-device, and TestFlight viewpoints.</p>
+                </article>
+                <article>
+                  <span>Reviewer</span>
+                  <strong>Quality check</strong>
+                  <p>Check PR diffs, existing warnings, new risks, and missing verification logs.</p>
+                </article>
+                <article>
+                  <span>Release</span>
+                  <strong>Release preparation</strong>
+                  <p>Organize IPA builds, uploads, App Store Connect status, and release decision material.</p>
+                </article>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <strong>AI Engineering Evidence</strong>
+        <p>A record of using AI in development, verification, release preparation, and information protection.</p>
+      </div>
+      <a href="#top">Back to top</a>
+    </footer>
+  </body>
+</html>
