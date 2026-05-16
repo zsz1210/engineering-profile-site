@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Engineering Evidence | 開発体制と実践記録</title>
+    <meta
+      name="description"
+      content="AIエージェント、GitHub、Mac mini、Codexを使って開発体制、品質確認、リリース、情報保護まで設計した実践記録"
+    >
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body class="portfolio-redesign ai-redesign">
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="プロフィールへ">
+        <span class="brand-mark">AIE</span>
+        <span>AI Engineering Evidence</span>
+      </a>
+      <nav class="nav" aria-label="主要ナビゲーション">
+        <a href="./index.html">プロフィール</a>
+        <a href="#summary">概要</a>
+        <a href="#methods">使い方</a>
+        <a href="#architecture">体制</a>
+        <a href="#delivery">GitHub運用</a>
+        <a href="#governance">情報保護</a>
+        <a href="#future">展望</a>
+        <a href="#cases">merical</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">AI Engineering / Agent Workflow</p>
+          <h1 id="hero-title">AIを開発体制へ組み込んで回す</h1>
+          <p class="hero-intro">
+            AIを単発の質問相手ではなく、調査、実装、検証、記録、リリース準備を支える
+            開発チームの一部として扱ってきました。
+          </p>
+          <p class="lead">
+            Codex、Hermes Agent、OpenClaw、Gemini、GitHub、Mac miniを使い分け、
+            作業の現在地、判断理由、検証結果を残しながら進める体制を作りました。
+            本ページでは、AIをどう使い、どこを人間が判断したかを整理しています。
+          </p>
+          <nav class="profile-entry" aria-label="読む順番">
+            <a href="#summary">
+              <span>01</span>
+              <strong>AI活用の概要を読む</strong>
+              <small>何を評価してほしい資料なのかを確認</small>
+            </a>
+            <a href="./index.html">
+              <span>02</span>
+              <strong>プロフィールへ戻る</strong>
+              <small>職務経歴、技術領域、働き方を見る</small>
+            </a>
+          </nav>
+        </div>
+
+        <aside class="terminal-panel" aria-label="開発体制の概要">
+          <div class="terminal-bar">
+            <strong>ai work summary</strong>
+          </div>
+          <dl class="worklog-list">
+            <div>
+              <dt>技術判断</dt>
+              <dd>AIエージェント、GitHub、ローカル環境、Mac miniをどう組み合わせ、開発の流れに組み込んだか</dd>
+            </div>
+            <div>
+              <dt>推進力</dt>
+              <dd>Issue整理、役割分担、レビュー、検証、リリース準備まで継続して進めたか</dd>
+            </div>
+            <div>
+              <dt>責任範囲</dt>
+              <dd>AIに任せる作業、人間が判断する作業、会社情報を守る境界をどう設計したか</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <section id="summary" class="signal-band" aria-label="資料のサマリー">
+        <article>
+          <span>01</span>
+          <strong>この資料の位置づけ</strong>
+          <p>職務経歴書の補足として、AIを使った開発体制、判断、品質確認、情報保護の実践を説明する。</p>
+        </article>
+        <article>
+          <span>02</span>
+          <strong>見てほしい能力</strong>
+          <p>AIに任せるだけでなく、作業を分解し、状態を管理し、リリースまで進める開発推進力。</p>
+        </article>
+        <article>
+          <span>03</span>
+          <strong>AIの使い方</strong>
+          <p>調査、設計、実装、レビュー、検証、ドキュメント化、引き継ぎを役割分担して使う。</p>
+        </article>
+        <article>
+          <span>04</span>
+          <strong>最後に示す実例</strong>
+          <p>最後に具体例として、0からAIを活用してプロダクトを作り、リリース準備まで進めた流れを説明する。</p>
+        </article>
+      </section>
+
+      <section id="intent" class="section evaluation-section" aria-labelledby="intent-title">
+        <div class="section-inner">
+          <div class="section-heading wide">
+            <p class="eyebrow">For reviewers</p>
+            <h2 id="intent-title">この資料で知ってほしいこと</h2>
+            <p>
+              この資料で伝えたいのは、単なるAIツールの利用経験ではありません。
+              AIを開発の一部として扱い、設計、実装、確認、リリース、情報保護まで含めた
+              実務の流れに落とし込んできたことです。
+            </p>
+          </div>
+
+          <div class="evaluation-grid">
+            <article>
+              <span>01</span>
+              <h3>AIを使う目的を決められる</h3>
+              <p>
+                何でもAIへ投げるのではなく、調査、整理、実装、検証、レビューなど、
+                どの工程で使うべきかを分けて考えます。
+              </p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>開発の状態を管理できる</h3>
+              <p>
+                会話だけで終わらせず、Issue、PR、Project、branch、検証ログを使い、
+                作業の現在地と判断理由を残します。
+              </p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>品質確認まで設計できる</h3>
+              <p>
+                AIの出力をそのまま採用せず、テスト、解析、レビュー、画面確認、ログ確認など、
+                成果物に応じた確認対象を設計します。
+              </p>
+            </article>
+            <article>
+              <span>04</span>
+              <h3>業務利用の境界を意識している</h3>
+              <p>
+                会社情報、個人情報、秘密情報、外部送信、公開範囲を区別し、
+                AIを使う範囲と人間が止める範囲を分けています。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-band" aria-label="主な特徴">
+        <div class="stat">
+          <strong>AIの使い分け</strong>
+          <span>Codex、Hermes、OpenClaw、Geminiを用途で分ける</span>
+        </div>
+        <div class="stat">
+          <strong>状態管理</strong>
+          <span>Issue / PR / Projectを作業の現在地にする</span>
+        </div>
+        <div class="stat">
+          <strong>ローカル基盤</strong>
+          <span>Mac miniで作業環境と権限を分けて扱う</span>
+        </div>
+        <div class="stat">
+          <strong>検証とリリース</strong>
+          <span>確認結果を残してリリース判断につなげる</span>
+        </div>
+      </section>
+
+      <section id="methods" class="section overview-section" aria-labelledby="methods-title">
+        <div class="section-inner reading-layout">
+          <p class="eyebrow">How I used AI</p>
+          <h2 id="methods-title">AIをどんな手法・形で利用していたか</h2>
+          <div class="article-body">
+            <p>
+              AIは、単発の質問相手としてではなく、開発プロセスの中に役割を持たせて使っていました。
+              まず人間側で目的、制約、完了条件を決め、そのうえでAIに調査、設計案、実装、レビュー、
+              テスト観点、ドキュメント化を分けて依頼します。
+            </p>
+            <p>
+              使い方の中心は、状態管理です。Codex、Hermes Agent、OpenClaw、Geminiを用途で分け、
+              GitHub、ローカルファイル、ブラウザ、記憶情報、検証結果をつなげることで、
+              セッションが変わっても同じ作業を継続できるようにしていました。
+            </p>
+            <p>
+              もう一つの軸は検証です。AIにコードを書かせるだけではなく、差分確認、テスト、画面確認、
+              ログ確認、レビュー、リリース準備までを完了条件に入れます。
+              そのため、AI活用はスピードだけでなく、品質と引き継ぎ可能性を上げるための仕組みとして扱っています。
+            </p>
+            <p>
+              さらに、AIを使う範囲と、人間が確認する範囲を分けています。
+              会社情報や個人情報、Token、外部送信が絡む場面では、AIへ判断を委ねきらず、確認やサニタイズを挟むようにしていました。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="principles" class="section" aria-labelledby="principles-title">
+        <div class="section-inner two-column">
+          <div class="section-heading sticky-note">
+            <p class="eyebrow">How I think</p>
+            <h2 id="principles-title">実際に意識していたこと</h2>
+            <p>
+              AI活用で大きなリスクになるのは、便利さの裏で作業状態が散らかることです。
+              そのため、会話、ファイル、GitHub、検証結果をつなげて、次に続けられる形にすることを意識していました。
+            </p>
+          </div>
+
+          <div class="principle-list">
+            <article>
+              <span>01</span>
+              <h3>会話より状態を信じる</h3>
+              <p>
+                チャットログだけに依存せず、現在のタスク、判断、検証結果、次のアクションをファイルやGitHubへ残します。
+                セッションが変わっても同じ文脈に戻れることを重視しています。
+              </p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>AIに任せる範囲を分ける</h3>
+              <p>
+                調査、差分確認、実装、テスト補助はAIに寄せつつ、外部送信、破壊的操作、公開判断、
+                リリース判断は人間確認を挟む設計にしています。
+              </p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>失敗を次の運用に変換する</h3>
+              <p>
+                繰り返したミス、環境依存の詰まり、確認漏れは、手順やルールに戻して次回の作業品質を上げます。
+                AI利用そのものも改善対象として扱います。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="architecture" class="section architecture-section" aria-labelledby="architecture-title">
+        <div class="section-inner">
+          <div class="section-heading wide">
+            <p class="eyebrow">My local setup</p>
+            <h2 id="architecture-title">自分のMac miniを中心にした作業環境</h2>
+            <p>
+              Mac miniをAI開発・自動化のローカル基盤として使い、Codex、Hermes Agent、OpenClaw、Gemini、
+              GitHub、ブラウザ、ドキュメントを用途ごとに接続していました。
+            </p>
+          </div>
+
+          <div class="architecture-grid">
+            <figure class="system-map" aria-label="AI開発体制のアーキテクチャ図">
+              <div class="map-core">
+                <span>Local Runtime</span>
+                <strong>Mac mini</strong>
+              </div>
+              <div class="map-item item-a">Codex</div>
+              <div class="map-item item-b">Hermes Agent</div>
+              <div class="map-item item-c">OpenClaw / Mokuri</div>
+              <div class="map-item item-d">Gemini</div>
+              <div class="map-item item-e">GitHub</div>
+              <div class="map-item item-f">Docs / Memory</div>
+            </figure>
+
+            <div class="stack-table" role="table" aria-label="技術スタック">
+              <div role="row">
+                <strong role="cell">AI / Agent</strong>
+                <span role="cell">Codex, Hermes Agent, OpenClaw, Gemini</span>
+              </div>
+              <div role="row">
+                <strong role="cell">Delivery</strong>
+                <span role="cell">GitHub Issues, Pull Requests, Projects, branch workflow</span>
+              </div>
+              <div role="row">
+                <strong role="cell">Runtime</strong>
+                <span role="cell">Mac mini, local files, browser profile, CLI tools</span>
+              </div>
+              <div role="row">
+                <strong role="cell">Quality</strong>
+                <span role="cell">tests, static analysis, review, UI check, verification log</span>
+              </div>
+              <div role="row">
+                <strong role="cell">Deploy</strong>
+                <span role="cell">release branch, build upload, deployment prep, verification log</span>
+              </div>
+              <div role="row">
+                <strong role="cell">Governance</strong>
+                <span role="cell">secret handling, external-send confirmation, sanitized output</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="codex" class="section codex-section" aria-labelledby="codex-title">
+        <div class="section-inner">
+          <div class="section-heading wide">
+            <p class="eyebrow">Codex in daily work</p>
+            <h2 id="codex-title">Codexを実装・検証の統合環境として使う</h2>
+            <p>
+              Codexでは、コードを書く前にまず記憶やGitHubの履歴を見ます。
+              その上で、ファイル編集、ブラウザ確認、成果物作成まで同じ流れで進めています。
+            </p>
+          </div>
+
+          <div class="codex-layout">
+            <article class="codex-card primary-card">
+              <span class="file-label">codex session</span>
+              <h3>まず「どの作業の継続か」を確認する</h3>
+              <p>
+                いきなり実装へ入らず、ローカルの記憶、GitHubのPR・Issue、現在のファイル差分を確認し、
+                「どの作業の継続か」を把握してから動かします。特に引き継ぎ済みの作業では、mainだけを見て判断しないようにしています。
+              </p>
+            </article>
+
+            <div class="codex-uses">
+              <article>
+                <strong>Local files</strong>
+                <span>職務経歴書、補足資料、サイト、設定ファイルを読み、必要な成果物へ反映</span>
+              </article>
+              <article>
+                <strong>Browser check</strong>
+                <span>ローカルサイトやWebアプリを実際に表示し、崩れや導線を確認</span>
+              </article>
+              <article>
+                <strong>GitHub workflow</strong>
+                <span>Issue、PR、branch、Projectの履歴から作業状態を復元して進行</span>
+              </article>
+              <article>
+                <strong>Verification</strong>
+                <span>テスト、差分確認、レビュー、画面確認、ログ確認を完了条件に入れる</span>
+              </article>
+              <article>
+                <strong>Deployment</strong>
+                <span>ビルド、アップロード、リリース準備、検証ログ化までAIを活用して進める</span>
+              </article>
+            </div>
+          </div>
+
+          <div class="codex-flow" aria-label="Codexの使い方">
+            <span>記憶を読む</span>
+            <span>差分を見る</span>
+            <span>実装する</span>
+            <span>検証する</span>
+            <span>記録する</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="delivery" class="section delivery-section" aria-labelledby="delivery-title">
+        <div class="section-inner two-column">
+          <div class="section-heading sticky-note">
+            <p class="eyebrow">How I ran the work</p>
+            <h2 id="delivery-title">GitHubを見ながら、短いサイクルで回す</h2>
+            <p>
+              GitHubは、単なるコード置き場ではなく、AIと人間が同じ状態を見て作業するための中心にしていました。
+              Issue、PR、Project、branch、検証ログを見ながら、AIに役割を持たせて短いサイクルで進めます。
+            </p>
+          </div>
+
+          <ol class="workflow">
+            <li>
+              <span>Issue</span>
+              <h3>目的と制約を読む</h3>
+              <p>Issue、Project、既存PR、ローカル記憶から、今回の作業がどの流れの継続かを復元します。</p>
+            </li>
+            <li>
+              <span>Branch</span>
+              <h3>正しい継続地点を選ぶ</h3>
+              <p>mainだけを見て判断せず、release branchや過去PRを確認して作業開始地点を決めます。</p>
+            </li>
+            <li>
+              <span>Build</span>
+              <h3>実装と検証を小さく回す</h3>
+              <p>差分を読み、テスト、解析、レビュー、画面確認を挟みながら、AIに実装と確認の両方を補助させます。</p>
+            </li>
+            <li>
+              <span>Verify</span>
+              <h3>検証結果を判断材料にする</h3>
+              <p>テスト結果、画面確認、ログ、レビュー指摘を残し、次に進めるかどうかを判断できる状態にします。</p>
+            </li>
+            <li>
+              <span>Deploy</span>
+              <h3>デプロイと検証ログを接続する</h3>
+              <p>ビルドアップロード、リリース準備、PR、Issueコメント、検証ログをつなぎ、引き継ぎ可能な状態にします。</p>
+            </li>
+            <li>
+              <span>Observe</span>
+              <h3>SLOと監視をAIで補助する</h3>
+              <p>メトリクス、ログ、アラート、SLOの状態をAIで整理し、異常の兆候、影響範囲、優先度を素早く判断できるようにします。</p>
+            </li>
+            <li>
+              <span>Incident</span>
+              <h3>本番不具合の初動を自動化する</h3>
+              <p>本番障害時に、関連ログ、直近リリース、監視情報、既知Issueを集約し、一次切り分けと対応候補を提示する流れを作ります。</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section docs-section" aria-labelledby="docs-title">
+        <div class="section-inner">
+          <div class="section-heading wide">
+            <p class="eyebrow">What I kept</p>
+            <h2 id="docs-title">作業を続けるために残していたもの</h2>
+            <p>
+              AIで進めるほど、作業の理由や現在地を残すことが重要になります。
+              次のセッションでも迷わないように、状態、手順、守りのルール、長期記憶を分けて扱っていました。
+            </p>
+          </div>
+
+          <div class="doc-grid">
+            <article>
+              <span class="file-label">MISSION_CONTROL.md</span>
+              <h3>タスクと状態の中心</h3>
+              <p>今やること、担当、進捗、ブロッカー、完了条件を整理する運用メモ。</p>
+            </article>
+            <article>
+              <span class="file-label">WORKFLOWS.md</span>
+              <h3>AIの動かし方</h3>
+              <p>調査、実装、レビュー、通知、引き継ぎまでの標準フロー。</p>
+            </article>
+            <article>
+              <span class="file-label">SECURITY.md</span>
+              <h3>外部送信と秘密情報</h3>
+              <p>会社情報、個人情報、認証情報をAI運用へ混ぜる時のルール。</p>
+            </article>
+            <article>
+              <span class="file-label">MEMORY_POLICY.md</span>
+              <h3>記憶の残し方</h3>
+              <p>一時ログ、長期記憶、公開可能な情報を分けるための方針。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="governance" class="section governance-section" aria-labelledby="governance-title">
+        <div class="section-inner two-column">
+          <div class="section-heading sticky-note">
+            <p class="eyebrow">AI governance / security</p>
+            <h2 id="governance-title">会社情報が絡む前提で、AI利用の守りも設計する</h2>
+            <p>
+              AI活用のアピールでは、スピードだけでなく「何をAIに渡さないか」「どこで人間確認するか」も重要です。
+              業務で使えるAI体制として、情報保護と外部連携の境界を明確にします。
+            </p>
+          </div>
+
+          <div class="rule-list">
+            <article>
+              <h3>秘密情報を記録しない</h3>
+              <p>APIキー、GitHub Token、Discord Token、内部ID、個人情報を資料や公開ログに残さない。</p>
+            </article>
+            <article>
+              <h3>外部送信は確認する</h3>
+              <p>チャット投稿、PR操作、ファイル共有、破壊的操作、公開判断は人間確認を挟む。</p>
+            </article>
+            <article>
+              <h3>公開用に抽象化する</h3>
+              <p>サイトや職務経歴書では、会社名、内部構成、具体的な設定値をサニタイズして説明する。</p>
+            </article>
+            <article>
+              <h3>ローカル権限を分離する</h3>
+              <p>Mac mini上の実行基盤では、強いローカル権限と外部連携の範囲を分けて扱う。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="future" class="section future-section" aria-labelledby="future-title">
+        <div class="section-inner">
+          <div class="section-heading wide">
+            <p class="eyebrow">Future perspective</p>
+            <h2 id="future-title">AI活用の今後</h2>
+            <p>
+              AIは、単にコードを書く道具から、調査、設計、実装、検証、運用、意思決定の補助まで広がっていくと考えています。
+              重要なのは、AIそのものを導入することではなく、企業の業務フロー、開発チーム、情報管理の中で安全に使える形へ設計することです。
+            </p>
+          </div>
+
+          <div class="future-grid">
+            <article>
+              <span>Industry</span>
+              <h3>業界への影響</h3>
+              <p>
+                AIは、ソフトウェア開発だけでなく、業務整理、顧客対応、データ分析、ドキュメント作成、運用監視へ広がっていきます。
+                今後は「AIを使えるか」よりも、「AIを前提に業務プロセスを再設計できるか」が競争力になります。
+              </p>
+            </article>
+            <article>
+              <span>Company</span>
+              <h3>企業への影響</h3>
+              <p>
+                企業では、AIを試す段階から、権限、データ境界、レビュー、監査、セキュリティを含めた運用設計が必要になります。
+                小さなPoCで終わらせず、現場の作業ログ、GitHub、ドキュメント、リリース判断と接続することが重要です。
+              </p>
+            </article>
+            <article>
+              <span>Engineer</span>
+              <h3>エンジニアへの影響</h3>
+              <p>
+                エンジニアの役割は、コードを書く量だけでは測れなくなります。
+                課題を分解する力、AIへ渡す文脈を設計する力、出力をレビューする力、品質とリスクを判断する力がより重要になります。
+              </p>
+            </article>
+          </div>
+
+          <div class="future-stance">
+            <div>
+              <p class="case-kicker">My direction</p>
+              <h3>自分が今後伸ばしていきたいAI活用</h3>
+            </div>
+            <ol>
+              <li>
+                <strong>開発体制としてのAI</strong>
+                <span>個人の効率化だけでなく、Issue、PR、検証、リリース、ドキュメントをつなぐチーム運用へ発展させる。</span>
+              </li>
+              <li>
+                <strong>AI時代の品質保証</strong>
+                <span>AIの出力を前提に、テスト、レビュー、実機確認、ログ確認、SLO確認、セキュリティ確認を標準化する。</span>
+              </li>
+              <li>
+                <strong>企業で使えるAIルール</strong>
+                <span>会社情報、個人情報、秘密情報、外部送信、権限管理を整理し、安心して使えるAI運用にする。</span>
+              </li>
+              <li>
+                <strong>エンジニアの役割拡張</strong>
+                <span>実装者に閉じず、AIを使って事業課題を整理し、設計し、チームを前に進める役割を担う。</span>
+              </li>
+            </ol>
+          </div>
+
+          <div class="future-roadmap">
+            <div class="section-heading">
+              <p class="eyebrow">Roadmap</p>
+              <h3>今後の発展イメージ</h3>
+              <p>
+                AI活用は一度導入して終わりではなく、個人利用、チーム運用、企業標準化の順に成熟させていくものだと考えています。
+                自分としては、実装効率だけでなく、開発プロセス全体の再設計に関わっていきたいです。
+              </p>
+            </div>
+
+            <ol class="roadmap-list" aria-label="AI活用の発展ロードマップ">
+              <li>
+                <span>Now</span>
+                <strong>個人の開発速度と品質を上げる</strong>
+                <p>調査、実装、レビュー、検証、資料化をAIで補助し、自分の作業を速く、再開しやすく、説明しやすくする。</p>
+              </li>
+              <li>
+                <span>Next</span>
+                <strong>チームの開発サイクルへ組み込む</strong>
+                <p>Issue、PR、レビュー、テスト、リリース準備をAIと接続し、チーム全体で作業状態を共有できるようにする。</p>
+              </li>
+              <li>
+                <span>Scale</span>
+                <strong>企業で使える運用ルールにする</strong>
+                <p>情報保護、権限、監査、品質基準、SLO、外部送信ルールを整え、業務で安心してAIを使える状態へ広げる。</p>
+              </li>
+              <li>
+                <span>Impact</span>
+                <strong>事業課題を解く開発体制へ進化させる</strong>
+                <p>AIで業務分析、要件整理、プロトタイピング、運用改善、障害分析を短いサイクルで回し、事業側と開発側の距離を縮める。</p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="future-sre">
+            <div class="section-heading">
+              <p class="eyebrow">AI for SRE / Operations</p>
+              <h3>SLO・監視・本番障害対応へのAI活用</h3>
+              <p>
+                AIは開発工程だけではなく、運用と信頼性改善にも使えると考えています。
+                特に本番不具合では、最初の数分で何を見て、誰に伝え、どこまで自動化するかが重要です。
+              </p>
+            </div>
+
+            <div class="sre-use-cases">
+              <article>
+                <span>01</span>
+                <h4>SLO / Error Budgetの整理</h4>
+                <p>サービスごとのSLO、エラーバジェット、直近の劣化傾向をAIに整理させ、対応優先度を判断しやすくする。</p>
+              </article>
+              <article>
+                <span>02</span>
+                <h4>監視アラートの一次分析</h4>
+                <p>Datadogなどのメトリクス、ログ、トレース、アラート文面を集約し、関連しそうな原因候補を短時間で出す。</p>
+              </article>
+              <article>
+                <span>03</span>
+                <h4>本番不具合の初動支援</h4>
+                <p>直近リリース、PR、設定変更、既知Issue、エラーログを見て、影響範囲、暫定対応、切り戻し判断材料をまとめる。</p>
+              </article>
+              <article>
+                <span>04</span>
+                <h4>障害後の分析と再発防止</h4>
+                <p>タイムライン、原因、検知遅れ、対応遅れ、改善タスクを整理し、Postmortemと次のSLO改善へつなげる。</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="future-operating-model">
+            <article>
+              <span>Operating model</span>
+              <h3>AI時代に必要だと思う開発体制</h3>
+              <p>
+                AIを導入するだけでは、企業の成果にはつながりません。
+                誰が目的を決めるのか、どのデータを使えるのか、AIの出力を誰がレビューするのか、
+                どの基準を満たしたらリリースできるのか、本番障害時にどこまで自動対応してよいのかを決める必要があります。
+              </p>
+              <p>
+                そのため、今後はエンジニアがAIを使ってコードを書く力だけでなく、
+                AIを含む開発・運用プロセスそのものを設計し、チームが安全に速く動ける状態を作る力が重要になると考えています。
+              </p>
+            </article>
+            <article>
+              <span>My contribution</span>
+              <h3>自分が貢献したい領域</h3>
+              <p>
+                私は、バックエンド、SRE、チームリード、GitHub運用、監視、リリース確認の経験を活かして、
+                AIを現場の開発体制へ落とし込む役割を担いたいです。
+                AI活用を個人の工夫で終わらせず、チームの生産性、品質、信頼性、情報保護を両立する仕組みにしていきたいと考えています。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="cases" class="section cases-section" aria-labelledby="cases-title">
+        <div class="section-inner">
+          <div class="section-heading wide">
+            <p class="eyebrow">Detailed case</p>
+            <h2 id="cases-title">mericalで実際に実施したこと</h2>
+            <p>
+              このセクションでは、職務経歴書に収まりにくい
+              「何を作ったか」「どうAIで進めたか」「どこを人間が判断したか」を具体的に読める形にしています。
+            </p>
+          </div>
+
+          <div class="case-stack">
+            <div class="case-links" aria-label="mericalの関連リンク">
+              <div class="repo-note">
+                <span>GitHub</span>
+                <strong>Private repository</strong>
+                <em>github.com/zsz1210/merical（閲覧権限付与時に確認可能）</em>
+              </div>
+              <a href="https://apps.apple.com/jp/app/%E3%83%A1%E3%83%AA%E3%82%AB%E3%83%AB/id6758891621">
+                <span>App Store</span>
+                <strong>メリカルをApp Storeで見る</strong>
+              </a>
+            </div>
+
+            <article class="case-detail">
+              <div>
+                <p class="case-kicker">00 / Product origin</p>
+                <h3>mericalとは、フリマ販売の利益・在庫・売上を管理するモバイルアプリ</h3>
+                <p>
+                  mericalは、メルカリなどのフリマ販売で発生する「仕入れ価格」「販売予定価格」
+                  「販売手数料」「送料」「梱包資材」「売上」「利益」を一元管理するためのアプリです。
+                  仕入れから売却までの記録、利益シミュレーション、資材在庫、売上分析、バックアップまでを扱います。
+                </p>
+              </div>
+              <ul class="case-facts">
+                <li>Flutter / iOSアプリ</li>
+                <li>利益計算、仕入れ、在庫、売上管理</li>
+                <li>Drift / SQLiteによるローカルDB</li>
+                <li>バックアップ、広告、Pro課金導線</li>
+              </ul>
+            </article>
+
+            <article class="case-detail">
+              <div>
+                <p class="case-kicker">01 / From zero to release</p>
+                <h3>mericalは0からAIを活用して作ったプロダクト</h3>
+                <p>
+                  まず業務課題を整理し、要件定義、機能分割、画面構成、データモデル、アーキテクチャ方針をAIと検討しました。
+                  その後、Flutter / Riverpod / Driftを使って実装し、テスト、解析、シミュレーター確認、実機確認、
+                  TestFlight確認、ビルドアップロード、デプロイ準備までを一連の開発サイクルとして進めました。
+                </p>
+              </div>
+              <ul class="case-facts">
+                <li>要件定義からAI活用</li>
+                <li>Feature-First / Clean Architecture</li>
+                <li>シミュレーターから実機まで検証</li>
+                <li>TestFlightとデプロイ準備まで実施</li>
+              </ul>
+            </article>
+
+            <article class="case-notes">
+              <p class="case-kicker">What happened in the project</p>
+              <h3>mericalでの経緯: 課題の発見から、AI前提の開発体制へ</h3>
+              <div class="note-columns">
+                <div>
+                  <h4>1. フリマ販売の手間をプロダクト課題として整理</h4>
+                  <p>
+                    仕入れ価格、販売価格、送料、手数料、梱包資材、売上記録が別々に散らばると、
+                    実際の利益が見えにくくなります。そこを、個人のフリマ販売向けの管理アプリとしてまとめる方針にしました。
+                  </p>
+                </div>
+                <div>
+                  <h4>2. 要件定義と設計からAIを使う</h4>
+                  <p>
+                    利益シミュレーター、仕入れ管理、資材在庫、売上分析、設定、バックアップを機能単位で分け、
+                    Feature-FirstとClean Architectureを前提に、長く拡張できる構成をAIを使って検討しました。
+                  </p>
+                </div>
+                <div>
+                  <h4>3. 実装はAIに役割を持たせて進める</h4>
+                  <p>
+                    実装、レビュー、テスト、リリース確認を分け、AIに期待する出力を明確にしました。
+                    画面、状態管理、DB、バックアップ、広告、課金導線を小さな単位に分けて進めることで、作業を継続しやすくしました。
+                  </p>
+                </div>
+                <div>
+                  <h4>4. シミュレーターだけで終わらせない</h4>
+                  <p>
+                    Flutterのテストやシミュレーター確認だけではなく、実機、iPhone Mirroring、TestFlightまで確認対象にしました。
+                    特にバックアップやiCloud、課金・広告まわりは、実機でしか見えない差分があるため、AIに検証観点を整理させながら進めました。
+                  </p>
+                </div>
+                <div>
+                  <h4>5. リリース段階では履歴とGitHubを使って継続</h4>
+                  <p>
+                    後半では、Hermes Agentの作業履歴、GitHubのPR、release branch、Project boardを見て、
+                    どの状態から再開すべきかを整理しました。IPAビルド、アップロード、App Store Connectの処理状況、
+                    TestFlightでの確認結果も作業ログとして残しました。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="agile-case">
+              <div class="agile-copy">
+                <p class="case-kicker">02 / Agile AI team operation</p>
+                <h3>mericalではAIに役割を持たせ、小さな開発チームとして運用</h3>
+                <p>
+                  私自身がプロダクト判断と最終確認を担い、AI側には進行管理、実装、検証、レビュー、
+                  リリース準備の役割を分けました。GitHub ProjectのBacklog / In progress / In reviewと
+                  release branchを起点に、短いサイクルで実装、検証、PR、TestFlight確認を回す形です。
+                </p>
+              </div>
+
+              <div class="role-grid" aria-label="AIチームの役割">
+                <article>
+                  <span>Lead</span>
+                  <strong>進行管理</strong>
+                  <p>Issue、Project、release branchから現在地を整理し、次に進める作業へ分解。</p>
+                </article>
+                <article>
+                  <span>Builder</span>
+                  <strong>実装</strong>
+                  <p>Flutter/iOSの差分を読み、機能修正、設定変更、ビルド調整を担当。</p>
+                </article>
+                <article>
+                  <span>Tester</span>
+                  <strong>検証</strong>
+                  <p>テスト、解析、シミュレーター、実機、TestFlightの確認観点を管理。</p>
+                </article>
+                <article>
+                  <span>Reviewer</span>
+                  <strong>品質確認</strong>
+                  <p>PR差分、既存警告、新規リスク、検証ログの不足を確認。</p>
+                </article>
+                <article>
+                  <span>Release</span>
+                  <strong>デプロイ準備</strong>
+                  <p>IPAビルド、アップロード、App Store Connect処理、リリース判断材料を整理。</p>
+                </article>
+              </div>
+
+              <ol class="sprint-loop" aria-label="mericalでのアジャイル運用サイクル">
+                <li>Backlog / Issueを確認</li>
+                <li>作業を小さく分割</li>
+                <li>実装と検証を反復</li>
+                <li>PRとProjectを更新</li>
+                <li>実機・TestFlightで確認</li>
+                <li>学びを次の運用へ反映</li>
+              </ol>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div>
+        <strong>AI Engineering Evidence</strong>
+        <p>AIを開発体制に組み込み、実装、検証、リリース、情報保護まで運用した記録。</p>
+      </div>
+      <a href="#top">トップへ戻る</a>
+    </footer>
+  </body>
+</html>
