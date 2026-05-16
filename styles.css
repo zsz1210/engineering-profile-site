@@ -2985,6 +2985,20 @@ h2::before {
   text-decoration: underline;
 }
 
+.portfolio-redesign .intro-facts a,
+.portfolio-redesign .footer .contact-line a {
+  color: var(--accent);
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.portfolio-redesign .intro-facts a:hover,
+.portfolio-redesign .intro-facts a:focus-visible,
+.portfolio-redesign .footer .contact-line a:hover,
+.portfolio-redesign .footer .contact-line a:focus-visible {
+  text-decoration: underline;
+}
+
 .portfolio-redesign .profile-link-row .button {
   border-radius: 0;
 }

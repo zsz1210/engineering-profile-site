@@ -6,10 +6,10 @@
     <title>AI Engineering Evidence | 開發體制與實踐記錄</title>
     <meta
       name="description"
-      content="使用AI Agent、GitHub、Mac mini、Codex與本地工作流，支援開發體制、品質確認、發布與資訊保護的實踐記錄。"
+      content="使用AI Agent、GitHub、Mac mini、Codex與本機工作流程，支援開發體制、品質確認、發布與資訊保護的實踐記錄。"
     >
     <meta name="robots" content="noindex,nofollow">
-    <link rel="stylesheet" href="./styles.css?v=2">
+    <link rel="stylesheet" href="./styles.css?v=3">
   </head>
   <body class="portfolio-redesign ai-redesign">
     <header class="site-header">
@@ -68,11 +68,11 @@
           <dl class="worklog-list">
             <div>
               <dt>技術判斷</dt>
-              <dd>如何組合AI Agent、GitHub、本地環境與Mac mini，形成可運作的開發流程</dd>
+              <dd>如何組合AI Agent、GitHub、本機環境與Mac mini，形成可運作的開發流程</dd>
             </div>
             <div>
               <dt>推進力</dt>
-              <dd>從Issue整理、角色分工、Review、驗證到發布準備，持續推進工作的能力</dd>
+              <dd>從Issue整理、角色分工、程式審查、驗證到發布準備，持續推進工作的能力</dd>
             </div>
             <div>
               <dt>責任範圍</dt>
@@ -96,7 +96,7 @@
         <article>
           <span>03</span>
           <strong>AI的使用方式</strong>
-          <p>將調查、設計、實作、Review、驗證、文件化與交接分成不同角色使用。</p>
+          <p>將調查、設計、實作、程式審查、驗證、文件化與交接分成不同角色使用。</p>
         </article>
         <article>
           <span>04</span>
@@ -111,19 +111,19 @@
           <h2 id="methods-title">AI的使用手法與型態</h2>
           <div class="article-body">
             <p>
-              我會先在人類側決定目的、限制條件與完成條件，再把調查、設計案、實作、Review、
+              我會先在人類側決定目的、限制條件與完成條件，再把調查、設計案、實作、程式審查、
               測試觀點與文件化分別交給AI支援。
             </p>
             <p>
               使用核心是狀態管理。我將Codex、Hermes Agent、OpenClaw、Gemini、GitHub、
-              本地檔案、瀏覽器確認、記憶資訊與驗證結果串接起來，讓作業能跨Session持續。
+              本機檔案、瀏覽器確認、記憶資訊與驗證結果串接起來，讓作業能跨Session持續。
             </p>
             <p>
               我不會直接採用AI輸出，而是把差分確認、測試、靜態分析、畫面確認、Log確認、
-              Review與發布準備都放進完成條件。
+              程式審查與發布準備都放進完成條件。
             </p>
             <p>
-              涉及公司資訊、個人資訊、Token、外部送信、破壞性操作與發布判斷時，
+              涉及公司資訊、個人資訊、Token、外部傳送、破壞性操作與發布判斷時，
               我會把AI可協助的範圍與人類需要確認的範圍分開。
             </p>
           </div>
@@ -136,7 +136,7 @@
             <p class="eyebrow">My local setup</p>
             <h2 id="architecture-title">以Mac mini為中心的AI開發環境</h2>
             <p>
-              我將Mac mini作為AI開發與自動化的本地基盤，依用途連接Codex、Hermes Agent、
+              我將Mac mini作為AI開發與自動化的本機基盤，依用途連接Codex、Hermes Agent、
               OpenClaw、Gemini、GitHub、瀏覽器、文件與記憶資訊。
             </p>
           </div>
@@ -187,7 +187,7 @@
             <p class="eyebrow">Codex in daily work</p>
             <h2 id="codex-title">將Codex作為實作與驗證的整合環境</h2>
             <p>
-              在寫程式前，我會先用Codex確認本地記憶、GitHub履歷與目前差分。
+              在寫程式前，我會先用Codex確認本機記憶、GitHub履歷與目前差分。
               接著在同一個流程中完成檔案編輯、瀏覽器確認、成果物製作與驗證。
             </p>
           </div>
@@ -197,7 +197,7 @@
               <span class="file-label">codex session</span>
               <h3>先確認「這是哪個作業的延續」</h3>
               <p>
-                我不會直接進入實作，而是先確認本地記憶、PR、Issue、目前差分與release branch。
+                我不會直接進入實作，而是先確認本機記憶、PR、Issue、目前差分與release branch。
                 尤其是接手既有作業時，不只看main就做判斷。
               </p>
             </article>
@@ -209,7 +209,7 @@
               </article>
               <article>
                 <strong>Browser check</strong>
-                <span>實際開啟本地網站或Web App，確認版面、導線與使用者可見狀態</span>
+                <span>實際開啟本機網站或Web App，確認版面、導線與使用者可見狀態</span>
               </article>
               <article>
                 <strong>GitHub workflow</strong>
@@ -217,7 +217,7 @@
               </article>
               <article>
                 <strong>Verification</strong>
-                <span>把測試、差分確認、Review、畫面確認與Log確認放入完成條件</span>
+                <span>把測試、差分確認、審查、畫面確認與Log確認放入完成條件</span>
               </article>
             </div>
           </div>
@@ -238,7 +238,7 @@
             <li>
               <span>Issue</span>
               <h3>閱讀目的與限制</h3>
-              <p>從Issue、Project、既有PR與本地記憶復原這次作業屬於哪個流程。</p>
+              <p>從Issue、Project、既有PR與本機記憶復原這次作業屬於哪個流程。</p>
             </li>
             <li>
               <span>Branch</span>
@@ -248,12 +248,12 @@
             <li>
               <span>Build</span>
               <h3>小步實作與驗證</h3>
-              <p>閱讀差分、執行測試、分析警告、Review輸出與確認畫面，讓AI同時支援實作與確認。</p>
+              <p>閱讀差分、執行測試、分析警告、審查輸出與確認畫面，讓AI同時支援實作與確認。</p>
             </li>
             <li>
               <span>Deploy</span>
               <h3>連接發布與驗證記錄</h3>
-              <p>將Build上傳、發布準備、PR、Issue留言與驗證Log接在一起。</p>
+              <p>將建置上傳、發布準備、PR、Issue留言與驗證Log接在一起。</p>
             </li>
             <li>
               <span>Observe</span>
@@ -262,7 +262,7 @@
             </li>
             <li>
               <span>Incident</span>
-              <h3>自動化本番問題的初動</h3>
+              <h3>自動化正式環境問題的初動</h3>
               <p>彙整相關Log、近期發布、監控資訊與既知Issue，支援一次切分與對應候選。</p>
             </li>
           </ol>
@@ -285,7 +285,7 @@
               <p>API key、GitHub Token、內部ID與個人資訊不放進公開資料或公開Log。</p>
             </article>
             <article>
-              <h3>外部送信需要確認</h3>
+              <h3>外部傳送需要確認</h3>
               <p>發文、PR操作、檔案共享、破壞性操作與公開判斷都需要人類確認。</p>
             </article>
             <article>
@@ -293,8 +293,8 @@
               <p>公開網站與履歷中，將公司名、內部構成與具體設定值做抽象化與遮蔽。</p>
             </article>
             <article>
-              <h3>分離本地權限</h3>
-              <p>以Mac mini作為執行基盤時，分開處理強本地權限與外部連携範圍。</p>
+              <h3>分離本機權限</h3>
+              <p>以Mac mini作為執行基盤時，分開處理強本機權限與外部整合範圍。</p>
             </article>
           </div>
         </div>
@@ -320,21 +320,21 @@
             <article>
               <span>Company</span>
               <h3>對企業的影響</h3>
-              <p>企業需要設計權限、資料邊界、Review、監査、Security與發布判斷規則。</p>
+              <p>企業需要設計權限、資料邊界、審查、稽核、安全性與發布判斷規則。</p>
             </article>
             <article>
               <span>Engineer</span>
               <h3>對工程師的影響</h3>
-              <p>工程師不再只看寫了多少程式，而是更重視課題分解、脈絡設計、Review能力與風險判斷。</p>
+              <p>工程師不再只看寫了多少程式，而是更重視課題分解、脈絡設計、審查能力與風險判斷。</p>
             </article>
           </div>
 
           <div class="future-sre">
             <div class="section-heading">
               <p class="eyebrow">AI for SRE / Operations</p>
-              <h3>SLO、監控與本番障害初動支援</h3>
+              <h3>SLO、監控與正式環境故障初動支援</h3>
               <p>
-                AI也能支援可靠性改善，特別是在障害最初幾分鐘內整理資訊與判斷材料。
+                AI也能支援可靠性改善，特別是在故障最初幾分鐘內整理資訊與判斷材料。
               </p>
             </div>
 
@@ -351,12 +351,12 @@
               </article>
               <article>
                 <span>03</span>
-                <h4>本番問題初動支援</h4>
+                <h4>正式環境問題初動支援</h4>
                 <p>連接近期發布、PR、設定變更、既知Issue與Error Log，支援影響範圍與Rollback判斷。</p>
               </article>
               <article>
                 <span>04</span>
-                <h4>障害後分析</h4>
+                <h4>故障後分析</h4>
                 <p>整理Timeline、原因、檢知延遲、對應延遲與再發防止任務。</p>
               </article>
             </div>
@@ -399,7 +399,7 @@
               <ul class="case-facts">
                 <li>Flutter / iOS App</li>
                 <li>利潤計算、仕入、庫存、銷售管理</li>
-                <li>Drift / SQLite本地資料庫</li>
+                <li>Drift / SQLite本機資料庫</li>
                 <li>備份、廣告、Pro課金導線</li>
               </ul>
             </article>
@@ -410,14 +410,14 @@
                 <h3>merical是從零開始活用AI製作的產品</h3>
                 <p>
                   我從業務課題整理、需求定義、功能切分、畫面構成、資料模型與架構方針開始使用AI。
-                  接著推進實作、測試、解析、Simulator確認、實機確認、TestFlight確認、Build上傳與發布準備。
+                  接著推進實作、測試、解析、模擬器確認、實機確認、TestFlight確認、建置上傳與發布準備。
                 </p>
               </div>
               <ul class="case-facts">
                 <li>從需求定義開始AI輔助</li>
                 <li>Feature-First / Clean Architecture</li>
-                <li>從Simulator到實機皆進行驗證</li>
-                <li>TestFlight與發布準備まで實施</li>
+                <li>從模擬器到實機皆進行驗證</li>
+                <li>TestFlight確認與發布準備皆有實施</li>
               </ul>
             </article>
 
@@ -426,7 +426,7 @@
                 <p class="case-kicker">02 / Agile AI team operation</p>
                 <h3>在merical中，我讓AI擔任不同角色，如同小型開發團隊運作</h3>
                 <p>
-                  我自己負責產品判斷與最終確認，AI側則分成進度管理、實作、驗證、Review與發布準備。
+                  我自己負責產品判斷與最終確認，AI端則分成進度管理、實作、驗證、程式審查與發布準備。
                   以GitHub Project、release branch、PR與TestFlight確認作為共同循環。
                 </p>
               </div>
@@ -440,22 +440,22 @@
                 <article>
                   <span>Builder</span>
                   <strong>實作</strong>
-                  <p>閱讀Flutter/iOS差分，支援功能修正、設定變更與Build調整。</p>
+                  <p>閱讀Flutter/iOS差分，支援功能修正、設定變更與建置調整。</p>
                 </article>
                 <article>
                   <span>Tester</span>
                   <strong>驗證</strong>
-                  <p>管理測試、解析、Simulator、實機與TestFlight的確認觀點。</p>
+                  <p>管理測試、解析、模擬器、實機與TestFlight的確認觀點。</p>
                 </article>
                 <article>
                   <span>Reviewer</span>
                   <strong>品質確認</strong>
-                  <p>確認PR差分、既有警告、新風險與驗證Log不足。</p>
+                  <p>確認PR差分、既有警告、新風險與驗證Log是否不足。</p>
                 </article>
                 <article>
                   <span>Release</span>
                   <strong>發布準備</strong>
-                  <p>整理IPA Build、上傳、App Store Connect狀態與發布判斷材料。</p>
+                  <p>整理IPA建置、上傳、App Store Connect狀態與發布判斷材料。</p>
                 </article>
               </div>
             </article>
@@ -468,6 +468,7 @@
       <div>
         <strong>AI Engineering Evidence</strong>
         <p>將AI組進開發、驗證、發布準備與資訊保護流程中的實踐記錄。</p>
+        <p class="contact-line">Email: <a href="mailto:zsz1210@hotmail.com">zsz1210@hotmail.com</a></p>
       </div>
       <a href="#top">回到頂部</a>
     </footer>
