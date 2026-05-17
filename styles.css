@@ -3611,6 +3611,7 @@ h2::before {
   .ai-redesign .architecture-grid,
   .ai-redesign .codex-layout,
   .ai-redesign .case-links,
+  .ai-redesign .principle-list article,
   .ai-redesign .case-detail,
   .ai-redesign .rule-list,
   .ai-redesign .future-grid,
@@ -3648,10 +3649,36 @@ h2::before {
   .ai-redesign .article-body {
     margin-top: 12px;
   }
+
+  .ai-redesign .principle-list article {
+    padding: 18px;
+  }
+
+  .ai-redesign .principle-list article p {
+    margin-top: 10px;
+  }
 }
 
 @media (max-width: 720px) {
   .ai-redesign h1 {
     white-space: normal;
+  }
+
+  .ai-redesign .principle-list article,
+  .ai-redesign .rule-list article,
+  .ai-redesign .case-detail,
+  .ai-redesign .case-notes,
+  .ai-redesign .agile-case {
+    padding: 16px;
+  }
+
+  .ai-redesign .principle-list h3 {
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .ai-redesign .principle-list p {
+    font-size: 14px;
+    line-height: 1.85;
   }
 }
