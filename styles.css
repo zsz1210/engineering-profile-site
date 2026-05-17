@@ -819,6 +819,7 @@ h3 {
 }
 
 .footer {
+  align-items: flex-start;
   display: flex;
   justify-content: space-between;
   gap: 22px;
@@ -839,6 +840,12 @@ h3 {
 .footer a {
   flex: 0 0 auto;
   font-weight: 900;
+}
+
+.footer > a {
+  width: auto;
+  margin-left: auto;
+  white-space: nowrap;
 }
 
 @media (max-width: 1040px) {
@@ -2414,9 +2421,13 @@ h3 {
   padding: 24px 5vw;
 }
 
-.footer > div,
-.footer > a {
+.footer > div {
   width: min(880px, 90vw);
+  max-width: 100%;
+}
+
+.footer > a {
+  width: auto;
 }
 
 @media (max-width: 700px) {
@@ -2854,10 +2865,12 @@ h2::before {
   padding: 44px 0;
 }
 
+.portfolio-redesign .footer {
+  padding-inline: max(5vw, calc((100vw - 1180px) / 2));
+}
+
 .portfolio-redesign .section-inner,
-.portfolio-redesign .signal-band,
-.portfolio-redesign .footer > div,
-.portfolio-redesign .footer > a {
+.portfolio-redesign .signal-band {
   width: min(1080px, 90vw);
 }
 
