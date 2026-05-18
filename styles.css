@@ -2598,27 +2598,23 @@ h1 {
   font-size: 15px;
 }
 
-.ai-route-band {
-  padding: 0 0 34px;
-  border-top: 1px solid var(--line-soft);
-}
-
-.ai-route-inner {
+.ai-material-callout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 24px;
   align-items: center;
-  padding: 22px 0;
-  border-bottom: 1px solid var(--line-soft);
+  margin: 22px 0 18px;
+  padding: 20px;
+  background: rgba(95, 255, 184, 0.06);
+  border: 1px solid var(--line-strong);
 }
 
-.ai-route-inner h2 {
-  margin: 6px 0 8px;
-  font-size: clamp(22px, 2.5vw, 30px);
-  line-height: 1.35;
+.ai-material-callout h3 {
+  margin: 8px 0;
+  font-size: 20px;
 }
 
-.ai-route-inner p {
+.ai-material-callout p {
   max-width: 76ch;
   margin: 0;
   color: #bfd0ca;
@@ -2714,11 +2710,11 @@ h1 {
     margin-top: 28px;
   }
 
-  .ai-route-inner {
+  .ai-material-callout {
     display: block;
   }
 
-  .ai-route-inner .button {
+  .ai-material-callout .button {
     margin-top: 16px;
   }
 
@@ -2797,6 +2793,21 @@ h2::before {
 .portfolio-redesign .nav {
   gap: 18px;
   font-size: 12px;
+}
+
+.portfolio-redesign .nav a.nav-ai {
+  align-self: center;
+  padding: 6px 10px;
+  color: var(--accent);
+  background: rgba(95, 255, 184, 0.08);
+  border: 1px solid var(--line-strong);
+}
+
+.portfolio-redesign .nav a.nav-ai:hover,
+.portfolio-redesign .nav a.nav-ai:focus-visible {
+  color: var(--paper);
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .portfolio-redesign .hero {
