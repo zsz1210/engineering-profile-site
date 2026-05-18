@@ -2795,7 +2795,8 @@ h2::before {
   font-size: 12px;
 }
 
-.portfolio-redesign .nav a.nav-ai {
+.portfolio-redesign .nav a.nav-ai,
+.portfolio-redesign .nav a.nav-profile {
   align-self: center;
   padding: 6px 10px;
   color: var(--accent);
@@ -2804,7 +2805,9 @@ h2::before {
 }
 
 .portfolio-redesign .nav a.nav-ai:hover,
-.portfolio-redesign .nav a.nav-ai:focus-visible {
+.portfolio-redesign .nav a.nav-ai:focus-visible,
+.portfolio-redesign .nav a.nav-profile:hover,
+.portfolio-redesign .nav a.nav-profile:focus-visible {
   color: var(--paper);
   background: var(--accent);
   border-color: var(--accent);
